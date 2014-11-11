@@ -1,5 +1,9 @@
 package com.codingbat.java.main;
 
+import com.sun.xml.internal.ws.util.StringUtils;
+
+import java.util.regex.Pattern;
+
 /**
  * String 2
  *
@@ -10,6 +14,15 @@ package com.codingbat.java.main;
  * @link http://codingbat.com/java/String-2
  */
 public class String2 {
+
+    public static void main(String[] args) {
+
+        String2 string = new String2();
+
+        int found = ("abc hi ho").indexOf("hi", 5);
+
+        System.out.println(found);
+    }
 
     /**
      * Double Char
@@ -57,7 +70,26 @@ public class String2 {
      * @link http://codingbat.com/prob/p147448
      */
     public int countHi(String str) {
-        return 0;
+
+        String find = "hi";
+
+        int start = 0, count = 0;
+
+        while (true) {
+
+            int found = str.indexOf(find, start);
+
+            if (found != -1) {
+                count++;
+            }
+
+            if (found == -1)
+                break;
+
+            start = found + find.length();  // move start up for next iteration
+        }
+
+        return count;
     }
 
     /**

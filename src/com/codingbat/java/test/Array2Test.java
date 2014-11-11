@@ -18,6 +18,19 @@ public class Array2Test {
 
     private Array2 arr;
 
+    @Test
+    public void testCountEvens() {
+        assertEquals(3, arr.countEvens(new int[]{2, 1, 2, 3, 4}));
+        assertEquals(3, arr.countEvens(new int[]{2, 2, 0}));
+        assertEquals(0, arr.countEvens(new int[]{1, 3, 5}));
+        assertEquals(0, arr.countEvens(new int[]{}));
+        assertEquals(1, arr.countEvens(new int[]{11, 9, 0, 1}));
+        assertEquals(2, arr.countEvens(new int[]{2, 11, 9, 0}));
+        assertEquals(1, arr.countEvens(new int[]{2}));
+        assertEquals(2, arr.countEvens(new int[]{2, 5, 12}));
+    }
+
+
     @Before
     public void setUp() {
         arr = new Array2();

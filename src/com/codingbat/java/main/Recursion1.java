@@ -15,4 +15,33 @@ package com.codingbat.java.main;
  * @link http://codingbat.com/java/Recursion-1
  */
 public class Recursion1 {
+
+    /**
+     * Factorial
+     *
+     * Given n of 1 or more,
+     * return the factorial of n, which is n * (n-1) * (n-2) ... 1.
+     * Compute the result recursively (without loops).
+     *
+     * factorial(1) → 1
+     * factorial(2) → 2
+     * factorial(3) → 6
+     *
+     * @param n int
+     *
+     * @return int
+     *
+     * @link http://codingbat.com/prob/p154669
+     */
+    public int factorial(int n) {
+
+        int factorial = 1;
+
+        for (int i = 1; i <= n; i++) {
+            factorial *= i;
+        }
+
+        return factorial;
+    }
+
 }

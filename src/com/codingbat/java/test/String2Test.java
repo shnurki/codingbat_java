@@ -32,21 +32,21 @@ public class String2Test {
         assertEquals("aaaa", string.doubleChar("aa"));
     }
 
+    @Test
+    public void countHi() {
+
+        assertEquals(1, string.countHi("abc hi ho"));
+        assertEquals(2, string.countHi("ABChi hi"));
+        assertEquals(2, string.countHi("hihi"));
+        assertEquals(2, string.countHi("hiHIhi"));
+        assertEquals(0, string.countHi(""));
+        assertEquals(0, string.countHi("h"));
+        assertEquals(1, string.countHi("hi"));
+        assertEquals(0, string.countHi("Hi is no HI on ahI"));
+        assertEquals(2, string.countHi("hiho not HOHIhi"));
+    }
+
     /*
-        @Test
-        public void countHi() {
-
-            assertEquals(1, string.countHi("abc hi ho"));
-            assertEquals(2, string.countHi("ABChi hi"));
-            assertEquals(2, string.countHi("hihi"));
-            assertEquals(2, string.countHi("hiHIhi"));
-            assertEquals(0, string.countHi(""));
-            assertEquals(0, string.countHi("h"));
-            assertEquals(1, string.countHi("hi"));
-            assertEquals(0, string.countHi("Hi is no HI on ahI"));
-            assertEquals(2, string.countHi("hiho not HOHIhi"));
-        }
-
         @Test
         public void catDog() {
             assertTrue(string.catDog("catdog"));
