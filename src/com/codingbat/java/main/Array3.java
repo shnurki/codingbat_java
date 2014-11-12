@@ -85,11 +85,9 @@ public class Array3 {
                 nums[i + 1] = 4;
 
                 for (int j = i + 2; j < nums.length; j++) {
-
                     if (nums[j] == 4) {
                         nums[j] = temp;
                     }
-
                 }
             }
 
@@ -386,13 +384,10 @@ public class Array3 {
 
                 for (int j = i + 1; j < nums.length; j++) {
 
-                    if (nums[j] == nums[i]) {
-                        i++;
-                    } else
-                    {
+                    if (nums[j] != nums[i]) {
                         break;
                     }
-
+                    i++;
                 }
             }
         }

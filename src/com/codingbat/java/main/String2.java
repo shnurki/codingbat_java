@@ -79,12 +79,10 @@ public class String2 {
 
             int found = str.indexOf(find, start);
 
-            if (found != -1) {
-                count++;
-            }
-
             if (found == -1)
                 break;
+
+            count++;
 
             start = found + find.length();  // move start up for next iteration
         }

@@ -212,10 +212,7 @@ public class String1 {
      * @link http://codingbat.com/prob/p168564
      */
     public String comboString(String a, String b) {
-        if (a.length() > b.length())
-            return b + a + b;
-        else
-            return a + b + a;
+        return (a.length() > b.length()) ? b + a + b : a + b + a;
     }
 
     /**
@@ -417,8 +414,8 @@ public class String1 {
 
         if ((index + 2) <= str.length() && (index + 2) > 0)
             return str.substring(index, index + 2);
-        else
-            return str.substring(0, 2);
+
+        return str.substring(0, 2);
     }
 
     /**
@@ -439,10 +436,7 @@ public class String1 {
      * @link http://codingbat.com/prob/p115863
      */
     public String middleThree(String str) {
-        if (str.length() <= 3)
-            return str;
-        else
-            return str.substring((str.length() / 2 - 1), (str.length() / 2 + 2));
+        return (str.length() <= 3) ? str : str.substring((str.length() / 2 - 1), (str.length() / 2 + 2));
     }
 
     /**
@@ -478,6 +472,7 @@ public class String1 {
                 return true;
             }
         }
+
         return false;
     }
 
@@ -503,10 +498,9 @@ public class String1 {
             return str + "@";
         } else if (str.length() == 0) {
             return "@@";
-        } else
-        {
-            return str.substring(0, 2);
         }
+
+        return str.substring(0, 2);
     }
 
     /**
@@ -529,6 +523,7 @@ public class String1 {
      * @link http://codingbat.com/prob/p138183
      */
     public String lastChars(String a, String b) {
+
         a = (a.isEmpty()) ? "@" : a.substring(0, 1);
         b = (b.isEmpty()) ? "@" : b.substring(b.length() - 1);
 
@@ -555,16 +550,15 @@ public class String1 {
      * @link http://codingbat.com/prob/p132118
      */
     public String conCat(String a, String b) {
+
         if (a.isEmpty() || b.isEmpty())
             return a + b;
 
         if (a.substring(a.length() - 1, a.length()).equals(b.substring(0, 1))) {
             return a.substring(0, a.length() - 1) + b;
-        } else
-        {
-
-            return a + b;
         }
+
+        return a + b;
     }
 
     /**
@@ -585,6 +579,7 @@ public class String1 {
      * @link http://codingbat.com/prob/p194786
      */
     public String lastTwo(String str) {
+
         if (str.length() < 2) {
             return str;
         }
@@ -614,10 +609,9 @@ public class String1 {
             return "red";
         } else if (str.length() >= 4 && str.substring(0, 4).equals("blue")) {
             return "blue";
-        } else
-        {
-            return "";
         }
+
+        return "";
     }
 
     /**
@@ -690,9 +684,8 @@ public class String1 {
      * @link http://codingbat.com/prob/p172063
      */
     public String extraFront(String str) {
-        if (str.isEmpty()) {
-            return "";
-        } else if (str.length() == 1) {
+
+        if (str.length() == 1) {
             return str + str + str;
         } else if (str.length() > 1) {
             return str.substring(0, 2) + str.substring(0, 2) + str.substring(0, 2);
@@ -724,10 +717,9 @@ public class String1 {
             return "";
         } else if (str.length() > 1 && str.substring(0, 2).equals(str.substring(str.length() - 2, str.length()))) {
             return str.substring(2, str.length());
-        } else
-        {
-            return str;
         }
+
+        return str;
     }
 
     /**
@@ -791,10 +783,7 @@ public class String1 {
      * @link http://codingbat.com/prob/p141494
      */
     public String startWord(String str, String word) {
-        if (str.length() < 1) {
-            return "";
-        }
-        if (str.substring(1).indexOf(word.substring(1)) != 0) {
+        if (str.length() < 1 || str.substring(1).indexOf(word.substring(1)) != 0) {
             return "";
         }
         return str.substring(0, word.length());
@@ -818,29 +807,20 @@ public class String1 {
      * @link http://codingbat.com/prob/p151940
      */
     public String withoutX(String str) {
-        if (str.isEmpty()) {
+        if (str.isEmpty() || (str.length() == 1 && str.substring(0, 1).equals("x"))) {
             return "";
         }
         if (str.length() > 1) {
             if (str.substring(0, 1).equals("x") && str.substring(str.length() - 1, str.length()).equals("x")) {
                 return str.substring(1, str.length() - 1);
             } else if (str.substring(0, 1).equals("x")) {
-                return str.substring(1, str.length());
+                return str.substring(1);
             } else if (str.substring(str.length() - 1, str.length()).equals("x")) {
                 return str.substring(0, str.length() - 1);
-            } else
-            {
-                return str;
-            }
-        } else
-        {
-            if (str.substring(0, 1).equals("x")) {
-                return "";
-            } else
-            {
-                return str;
             }
         }
+
+        return str;
     }
 
     /**
@@ -862,28 +842,21 @@ public class String1 {
      * @link http://codingbat.com/prob/p151359
      */
     public String withoutX2(String str) {
-        if (str.isEmpty()) {
+
+        if (str.isEmpty() || (str.length() == 1 && str.substring(0, 1).equals("x"))) {
             return "";
         } else if (str.length() > 1) {
+
             if (str.substring(0, 1).equals("x") && str.substring(1, 2).equals("x")) {
                 return str.substring(2);
             } else if (str.substring(0, 1).equals("x")) {
                 return str.substring(1);
             } else if (str.substring(1, 2).equals("x")) {
                 return str.substring(0, 1) + str.substring(2);
-            } else
-            {
-                return str;
             }
 
-        } else
-        {
-            if (str.substring(0, 1).equals("x")) {
-                return "";
-            } else
-            {
-                return str;
-            }
         }
+
+        return str;
     }
 }

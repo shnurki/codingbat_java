@@ -35,13 +35,11 @@ public class Recursion1 {
      */
     public int factorial(int n) {
 
-        int factorial = 1;
-
-        for (int i = 1; i <= n; i++) {
-            factorial *= i;
+        if (n < 1) {
+            return 1;
         }
 
-        return factorial;
+        return n * factorial(n - 1);
     }
 
 }

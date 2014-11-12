@@ -3,7 +3,6 @@ package com.codingbat.java.test;
 import com.codingbat.java.main.Array3;
 
 import static org.junit.Assert.*;
-import static org.junit.Assert.assertEquals;
 
 import org.junit.*;
 
