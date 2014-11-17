@@ -696,8 +696,7 @@ public class Array2 {
     public int[] shiftLeft(int[] nums) {
         if (nums.length > 0) {
             int first = nums[0];
-            for (int i = 0; i < nums.length - 1; i++)
-                nums[i] = nums[i + 1];
+            System.arraycopy(nums, 1, nums, 0, nums.length - 1);
             nums[nums.length - 1] = first;
         }
         return nums;
@@ -756,15 +755,19 @@ public class Array2 {
      */
     public int[] pre4(int[] nums) {
         int count = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (nums[i] != 4)
+
+        for (int num : nums) {
+            if (num != 4) {
                 count++;
-            else
+            } else
+            {
                 break;
+            }
         }
+
         int[] result = new int[count];
-        for (int i = 0; i < result.length; i++)
-            result[i] = nums[i];
+
+        System.arraycopy(nums, 0, result, 0, result.length);
         return result;
     }
 
@@ -846,11 +849,14 @@ public class Array2 {
         int zeroPos = 0;
         int nonZeroPos = res.length - 1;
 
-        for (int i = 0; i < nums.length; i++)
-            if (nums[i] == 0)
+        for (int num : nums) {
+            if (num == 0) {
                 res[zeroPos++] = 0;
-            else
-                res[nonZeroPos--] = nums[i];
+            } else
+            {
+                res[nonZeroPos--] = num;
+            }
+        }
 
         return res;
     }
@@ -876,11 +882,12 @@ public class Array2 {
         int[] copy = new int[nums.length];
         int index = 0;
 
-        for (int i = 0; i < nums.length; i++)
-            if (nums[i] != 10) {
-                copy[index] = nums[i];
+        for (int num : nums) {
+            if (num != 10) {
+                copy[index] = num;
                 index++;
             }
+        }
         return copy;
     }
 
@@ -933,11 +940,14 @@ public class Array2 {
         int evenPos = 0;
         int oddPos = res.length - 1;
 
-        for (int i = 0; i < nums.length; i++)
-            if (nums[i] % 2 == 0)
-                res[evenPos++] = nums[i];
-            else
-                res[oddPos--] = nums[i];
+        for (int num : nums) {
+            if (num % 2 == 0) {
+                res[evenPos++] = num;
+            } else
+            {
+                res[oddPos--] = num;
+            }
+        }
         return res;
     }
 
