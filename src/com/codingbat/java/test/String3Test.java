@@ -33,15 +33,15 @@ public class String3Test {
         assertEquals(2, string.countYZ("y2bz"));
         assertEquals(0, string.countYZ("zxyx"));
     }
-/*
+
     @Test
     public void testWithoutString() {
         assertEquals("He there", string.withoutString("Hello there", "llo"));
         assertEquals("Hllo thr", string.withoutString("Hello there", "e"));
         assertEquals("Hello there", string.withoutString("Hello there", "x"));
-        assertEquals("Th a FH", string.withoutString("This is a FISH", "IS"));
-        assertEquals("TH a FH", string.withoutString("THIS is a FISH", "is"));
-        assertEquals("TH a FH", string.withoutString("THIS is a FISH", "iS"));
+        assertEquals("Th  a FH", string.withoutString("This is a FISH", "IS"));
+        assertEquals("TH  a FH", string.withoutString("THIS is a FISH", "is"));
+        assertEquals("TH  a FH", string.withoutString("THIS is a FISH", "iS"));
         assertEquals("abab", string.withoutString("abxxxxab", "xx"));
         assertEquals("abxab", string.withoutString("abxxxab", "xx"));
         assertEquals("abab", string.withoutString("abxxxab", "x"));
@@ -54,7 +54,7 @@ public class String3Test {
         assertEquals("", string.withoutString("1111", "1"));
         assertEquals("", string.withoutString("1111", "11"));
         assertEquals("jtx", string.withoutString("MkjtMkx", "Mk"));
-        assertEquals("Hi", string.withoutString("Hi HoHo", "Ho"));
+        assertEquals("Hi ", string.withoutString("Hi HoHo", "Ho"));
     }
 
     @Test
@@ -140,7 +140,7 @@ public class String3Test {
         assertEquals("", string.mirrorEnds("abab"));
         assertEquals("xxx", string.mirrorEnds("xxx"));
         assertEquals("xxYxx", string.mirrorEnds("xxYxx"));
-        assertEquals("Hi", string.mirrorEnds("Hi and iH"));
+        assertEquals("Hi ", string.mirrorEnds("Hi and iH"));
         assertEquals("x", string.mirrorEnds("x"));
         assertEquals("", string.mirrorEnds(""));
         assertEquals("123", string.mirrorEnds("123and then 321"));
@@ -188,7 +188,7 @@ public class String3Test {
         assertEquals("is not his", string.notReplace("is his"));
         assertEquals("xis yis", string.notReplace("xis yis"));
         assertEquals("AAAis is not", string.notReplace("AAAis is"));
-    }*/
+    }
 
     @Before
     public void setUp() {

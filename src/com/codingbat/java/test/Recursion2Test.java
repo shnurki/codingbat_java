@@ -19,6 +19,39 @@ public class Recursion2Test {
 
     private Recursion2 recursion;
 
+
+    @Test
+    public void testGroupSum() {
+    }
+
+    @Test
+    public void testGroupSum6() {
+    }
+
+    @Test
+    public void testGroupNoAdj() {
+    }
+
+    @Test
+    public void testGroupSum5() {
+    }
+
+    @Test
+    public void testGroupSumClump() {
+    }
+
+    @Test
+    public void testSplitArray() {
+    }
+
+    @Test
+    public void testSplitOdd10() {
+    }
+
+    @Test
+    public void testSplit53() {
+    }
+
     @Before
     public void setUp() {
         recursion = new Recursion2();

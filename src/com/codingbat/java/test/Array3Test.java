@@ -88,7 +88,6 @@ public class Array3Test {
 
     @Test
     public void testLinearIn() {
-
         assertTrue(arr.linearIn(new int[]{1, 2, 4, 6}, new int[]{2, 4}));
         assertFalse(arr.linearIn(new int[]{1, 2, 4, 6}, new int[]{2, 3, 4}));
         assertTrue(arr.linearIn(new int[]{1, 2, 4, 4, 6}, new int[]{2, 4}));
@@ -126,7 +125,6 @@ public class Array3Test {
 
     @Test
     public void testMaxMirror() {
-
         assertEquals(3, arr.maxMirror(new int[]{1, 2, 3, 8, 9, 3, 2, 1}));
         assertEquals(3, arr.maxMirror(new int[]{1, 2, 1, 4}));
         assertEquals(2, arr.maxMirror(new int[]{7, 1, 2, 9, 7, 2, 1}));
