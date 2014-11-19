@@ -106,7 +106,7 @@ public class String2 {
             if (str.substring(i, i + 3).equals("dog"))
                 dogs += 1;
         }
-        
+
         return cats == dogs;
     }
 
@@ -233,9 +233,7 @@ public class String2 {
     public boolean xyBalance(String str) {
         int lastX = str.lastIndexOf("y");
         int lastY = str.lastIndexOf("x");
-        if (lastX == -1 && lastY == -1)
-            return true;
-        return (lastX > lastY);
+        return lastX == -1 && lastY == -1 || (lastX > lastY);
     }
 
     /**

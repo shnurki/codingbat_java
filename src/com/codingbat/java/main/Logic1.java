@@ -54,9 +54,10 @@ public class Logic1 {
      * @link http://codingbat.com/prob/p103360
      */
     public int dateFashion(int you, int date) {
-        return 0;
+        if (you <= 2 || date <= 2)
+            return 0;
+        return (you >= 8 && date >= 2 || date >= 8 && you >= 2) ? 2 : 1;
     }
-
 
     /**
      * SquirrelPlay
@@ -77,9 +78,8 @@ public class Logic1 {
      * @link http://codingbat.com/prob/p141061
      */
     public boolean squirrelPlay(int temp, boolean isSummer) {
-        return true;
+        return (isSummer) ? (temp >= 60 && temp <= 100) : (temp >= 60 && temp <= 90);
     }
-
 
     /**
      * CaughtSpeeding
@@ -102,9 +102,12 @@ public class Logic1 {
      * @link http://codingbat.com/prob/p157733
      */
     public int caughtSpeeding(int speed, boolean isBirthday) {
-        return 0;
+        if (isBirthday)
+            speed -= 5;
+        if (speed <= 60)
+            return 0;
+        return (speed > 60 && speed <= 80) ? 1 : 2;
     }
-
 
     /**
      * SortaSum
@@ -124,7 +127,7 @@ public class Logic1 {
      * @link http://codingbat.com/prob/p183071
      */
     public int sortaSum(int a, int b) {
-        return 0;
+        return (a + b >= 10 && a + b <= 19) ? 20 : a + b;
     }
 
     /**
@@ -148,7 +151,9 @@ public class Logic1 {
      * @link http://codingbat.com/prob/p160543
      */
     public String alarmClock(int day, boolean vacation) {
-        return "";
+        if (vacation)
+            return (day >= 1 && day <= 5) ? "10:00" : "off";
+        return (day >= 1 && day <= 5) ? "7:00" : "10:00";
     }
 
     /**
@@ -169,7 +174,7 @@ public class Logic1 {
      * @link http://codingbat.com/prob/p137742
      */
     public boolean love6(int a, int b) {
-        return true;
+        return a == 6 || b == 6 || a + b == 6 || Math.abs(a - b) == 6;
     }
 
     /**
@@ -190,7 +195,7 @@ public class Logic1 {
      * @link http://codingbat.com/prob/p137365
      */
     public boolean in1To10(int n, boolean outsideMode) {
-        return true;
+        return (outsideMode) ? n <= 1 || n >= 10 : n >= 1 && n <= 10;
     }
 
     /**
@@ -211,7 +216,7 @@ public class Logic1 {
      * @link http://codingbat.com/prob/p100962
      */
     public boolean specialEleven(int n) {
-        return true;
+        return n % 11 == 0 || n % 11 == 1;
     }
 
     /**
@@ -231,7 +236,7 @@ public class Logic1 {
      * @link http://codingbat.com/prob/p118290
      */
     public boolean more20(int n) {
-        return true;
+        return n % 20 == 1 || n % 20 == 2;
     }
 
     /**
@@ -251,7 +256,7 @@ public class Logic1 {
      * @link http://codingbat.com/prob/p159612
      */
     public boolean old35(int n) {
-        return true;
+        return n % 3 == 0 ^ n % 5 == 0;
     }
 
     /**
@@ -271,7 +276,7 @@ public class Logic1 {
      * @link http://codingbat.com/prob/p133158
      */
     public boolean less20(int n) {
-        return true;
+        return (n + 1) % 20 == 0 || (n + 2) % 20 == 0;
     }
 
     /**
@@ -292,7 +297,7 @@ public class Logic1 {
      * @link http://codingbat.com/prob/p193613
      */
     public boolean nearTen(int num) {
-        return true;
+        return num % 10 >= 8 || num % 10 <= 2;
     }
 
     /**
@@ -313,7 +318,7 @@ public class Logic1 {
      * @link http://codingbat.com/prob/p178728
      */
     public int teenSum(int a, int b) {
-        return 0;
+        return (a >= 13 && a <= 19 || b >= 13 && b <= 19) ? 19 : a + b;
     }
 
     /**
@@ -335,7 +340,7 @@ public class Logic1 {
      * @link http://codingbat.com/prob/p110973
      */
     public boolean answerCell(boolean isMorning, boolean isMom, boolean isAsleep) {
-        return true;
+        return !isAsleep && !(isMorning && !isMom);
     }
 
     /**
@@ -358,7 +363,11 @@ public class Logic1 {
      * @link http://codingbat.com/prob/p177181
      */
     public int teaParty(int tea, int candy) {
-        return 0;
+        if (candy < 5 || tea < 5)
+            return 0;
+        if (candy >= 5 && tea >= 5 && (candy >= 2 * tea || tea >= 2 * candy))
+            return 2;
+        return 1;
     }
 
     /**
@@ -378,7 +387,16 @@ public class Logic1 {
      * @link http://codingbat.com/prob/p137136
      */
     public String fizzString(String str) {
-        return "";
+        boolean fizz = str.charAt(0) == 'f';
+        boolean buzz = str.charAt(str.length() - 1) == 'b';
+
+        if (fizz && buzz)
+            return "FizzBuzz";
+        if (fizz)
+            return "Fizz";
+        if (buzz)
+            return "Buzz";
+        return str;
     }
 
     /**
@@ -403,7 +421,16 @@ public class Logic1 {
      * @link http://codingbat.com/prob/p115243
      */
     public String fizzString2(int n) {
-        return "";
+        boolean fizz = n % 3 == 0;
+        boolean buzz = n % 5 == 0;
+
+        if (fizz && buzz)
+            return "FizzBuzz!";
+        if (fizz)
+            return "Fizz!";
+        if (buzz)
+            return "Buzz!";
+        return n + "!";
     }
 
     /**
@@ -424,7 +451,7 @@ public class Logic1 {
      * @link http://codingbat.com/prob/p113261
      */
     public boolean twoAsOne(int a, int b, int c) {
-        return true;
+        return a + b == c || a + c == b || b + c == a;
     }
 
     /**
@@ -448,7 +475,9 @@ public class Logic1 {
      * @link http://codingbat.com/prob/p154188
      */
     public boolean inOrder(int a, int b, int c, boolean bOk) {
-        return true;
+        if (bOk)
+            return b < c;
+        return a < b && b < c;
     }
 
     /**
@@ -472,7 +501,9 @@ public class Logic1 {
      * @link http://codingbat.com/prob/p140272
      */
     public boolean inOrderEqual(int a, int b, int c, boolean equalOk) {
-        return true;
+        if (equalOk)
+            return a <= b && b <= c;
+        return a < b && b < c;
     }
 
     /**
@@ -494,7 +525,7 @@ public class Logic1 {
      * @link http://codingbat.com/prob/p169213
      */
     public boolean lastDigit(int a, int b, int c) {
-        return true;
+        return a % 10 == b % 10 || a % 10 == c % 10 || b % 10 == c % 10;
     }
 
     /**
@@ -515,7 +546,7 @@ public class Logic1 {
      * @link http://codingbat.com/prob/p179196
      */
     public boolean lessBy10(int a, int b, int c) {
-        return true;
+        return Math.abs(a - c) >= 10 || Math.abs(a - b) >= 10 || Math.abs(b - c) >= 10;
     }
 
     /**
@@ -537,7 +568,11 @@ public class Logic1 {
      * @link http://codingbat.com/prob/p115233
      */
     public int withoutDoubles(int die1, int die2, boolean noDoubles) {
-        return 0;
+        if (!noDoubles)
+            return die1 + die2;
+        if (die1 == die2)
+            return (die1 != 6) ? die1 + die2 + 1 : die1 + 1;
+        return die1 + die2;
     }
 
     /**
@@ -560,7 +595,11 @@ public class Logic1 {
      * @link http://codingbat.com/prob/p115384
      */
     public int maxMod5(int a, int b) {
-        return 0;
+        if (a == b)
+            return 0;
+        if (a % 5 == b % 5)
+            return (a < b) ? a : b;
+        return (a < b) ? b : a;
     }
 
     /**
@@ -584,6 +623,10 @@ public class Logic1 {
      * @link http://codingbat.com/prob/p170833
      */
     public int redTicket(int a, int b, int c) {
+        if (a == b && b == c)
+            return (c == 2) ? 10 : 5;
+        if (a != b && a != c)
+            return 1;
         return 0;
     }
 
@@ -607,7 +650,9 @@ public class Logic1 {
      * @link http://codingbat.com/prob/p120633
      */
     public int greenTicket(int a, int b, int c) {
-        return 0;
+        if (a != b && a != c && c != b)
+            return 0;
+        return (a == b && b == c) ? 20 : 10;
     }
 
     /**
@@ -631,7 +676,9 @@ public class Logic1 {
      * @link http://codingbat.com/prob/p192267
      */
     public int blueTicket(int a, int b, int c) {
-        return 0;
+        if (a + b == 10 || a + c == 10 || c + b == 10)
+            return 10;
+        return (a - c == 10 || b - c == 10) ? 5 : 0;
     }
 
     /**
@@ -653,7 +700,8 @@ public class Logic1 {
      * @link http://codingbat.com/prob/p153748
      */
     public boolean shareDigit(int a, int b) {
-        return true;
+        return (a % 10 == b % 10 || a / 10 == b / 10 ||
+                a % 10 == b / 10 || b % 10 == a / 10);
     }
 
     /**
@@ -675,7 +723,9 @@ public class Logic1 {
      * @link http://codingbat.com/prob/p118077
      */
     public int sumLimit(int a, int b) {
-        return 0;
+        String sum = String.valueOf(a + b);
+        String lengthA = String.valueOf(a);
+        return (sum.length() == lengthA.length()) ? a + b : a;
     }
 
 }

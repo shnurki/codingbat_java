@@ -14,11 +14,11 @@ Array1
 Array2
 Array3
 
-Logic1 -
+Logic1
 Logic2
 
-Recursion1 -
-Recursion2 -
+Recursion1
+Recursion2
 
 String 1
 String 2

@@ -38,9 +38,9 @@ public class Recursion2 {
      * @link http://codingbat.com/prob/p145416
      */
     public boolean groupSum(int start, int[] nums, int target) {
-        if (start >= nums.length) return target == 0;
-        return groupSum(start + 1, nums, target - nums[start])
-                || groupSum(start + 1, nums, target);
+        if (start >= nums.length)
+            return target == 0;
+        return groupSum(start + 1, nums, target - nums[start]) || groupSum(start + 1, nums, target);
     }
 
     /**
@@ -64,11 +64,11 @@ public class Recursion2 {
      * @link http://codingbat.com/prob/p199368
      */
     public boolean groupSum6(int start, int[] nums, int target) {
-        if (start >= nums.length) return target == 0;
+        if (start >= nums.length)
+            return target == 0;
         if (nums[start] == 6)
             return groupSum6(start + 1, nums, target - nums[start]);
-        return groupSum6(start + 1, nums, target - nums[start])
-                || groupSum6(start + 1, nums, target);
+        return groupSum6(start + 1, nums, target - nums[start]) || groupSum6(start + 1, nums, target);
     }
 
     /**
@@ -94,9 +94,9 @@ public class Recursion2 {
      * @link http://codingbat.com/prob/p169605
      */
     public boolean groupNoAdj(int start, int[] nums, int target) {
-        if (start >= nums.length) return target == 0;
-        return groupNoAdj(start + 2, nums, target - nums[start])
-                || groupNoAdj(start + 1, nums, target);
+        if (start >= nums.length)
+            return target == 0;
+        return groupNoAdj(start + 2, nums, target - nums[start]) || groupNoAdj(start + 1, nums, target);
     }
 
     /**
@@ -122,14 +122,14 @@ public class Recursion2 {
      * @link http://codingbat.com/prob/p138907
      */
     public boolean groupSum5(int start, int[] nums, int target) {
-        if (start >= nums.length) return target == 0;
+        if (start >= nums.length)
+            return target == 0;
         if (nums[start] % 5 == 0) {
             if (start < nums.length - 1 && nums[start + 1] == 1)
                 return groupSum5(start + 2, nums, target - nums[start]);
             return groupSum5(start + 1, nums, target - nums[start]);
         }
-        return groupSum5(start + 1, nums, target - nums[start])
-                || groupSum5(start + 1, nums, target);
+        return groupSum5(start + 1, nums, target - nums[start]) || groupSum5(start + 1, nums, target);
     }
 
     /**
@@ -158,7 +158,8 @@ public class Recursion2 {
      * @link http://codingbat.com/prob/p105136
      */
     public boolean groupSumClump(int start, int[] nums, int target) {
-        if (start >= nums.length) return target == 0;
+        if (start >= nums.length)
+            return target == 0;
 
         int sum = nums[start];
         int count = 1;
@@ -167,8 +168,7 @@ public class Recursion2 {
                 sum += nums[i];
                 count++;
             }
-        return groupSumClump(start + count, nums, target - sum)
-                || groupSumClump(start + count, nums, target);
+        return groupSumClump(start + count, nums, target - sum) || groupSumClump(start + count, nums, target);
     }
 
     /**
@@ -193,7 +193,23 @@ public class Recursion2 {
      * @link http://codingbat.com/prob/p185204
      */
     public boolean splitArray(int[] nums) {
-        return true;
+        return splitArrayHelper(0, nums, 0, 0);
+    }
+
+    /**
+     * Split Array Helper
+     *
+     * @param start int
+     * @param nums  int[]
+     * @param sum1  int
+     * @param sum2  int
+     *
+     * @return boolean
+     */
+    private boolean splitArrayHelper(int start, int[] nums, int sum1, int sum2) {
+        if (start >= nums.length)
+            return sum1 == sum2;
+        return splitArrayHelper(start + 1, nums, sum1 + nums[start], sum2) || splitArrayHelper(start + 1, nums, sum1, sum2 + nums[start]);
     }
 
     /**
@@ -219,7 +235,23 @@ public class Recursion2 {
      * @link http://codingbat.com/prob/p171660
      */
     public boolean splitOdd10(int[] nums) {
-        return true;
+        return splitOdd10Helper(0, nums, 0, 0);
+    }
+
+    /**
+     * Split Odd 10 Helper
+     *
+     * @param start int
+     * @param nums  int[]
+     * @param sum1  int
+     * @param sum2  int
+     *
+     * @return boolean
+     */
+    private boolean splitOdd10Helper(int start, int[] nums, int sum1, int sum2) {
+        if (start >= nums.length)
+            return sum1 % 10 == 0 && sum2 % 2 == 1 || sum1 % 2 == 1 && sum2 % 10 == 0;
+        return splitOdd10Helper(start + 1, nums, sum1 + nums[start], sum2) || splitOdd10Helper(start + 1, nums, sum1, sum2 + nums[start]);
     }
 
     /**
@@ -243,6 +275,27 @@ public class Recursion2 {
      * @link http://codingbat.com/prob/p168295
      */
     public boolean split53(int[] nums) {
-        return true;
+        return split53Helper(0, nums, 0, 0);
+    }
+
+    /**
+     * Split 53 Helper
+     *
+     * @param start int
+     * @param nums  int[]
+     * @param sum1  int
+     * @param sum2  int
+     *
+     * @return boolean
+     */
+    private boolean split53Helper(int start, int[] nums, int sum1, int sum2) {
+        if (start >= nums.length)
+            return sum1 == sum2;
+        if (nums[start] % 5 == 0)
+            return split53Helper(start + 1, nums, sum1 + nums[start], sum2);
+        if (nums[start] % 3 == 0)
+            return split53Helper(start + 1, nums, sum1, sum2 + nums[start]);
+
+        return split53Helper(start + 1, nums, sum1 + nums[start], sum2) || split53Helper(start + 1, nums, sum1, sum2 + nums[start]);
     }
 }

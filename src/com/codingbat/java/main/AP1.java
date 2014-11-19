@@ -299,13 +299,14 @@ public class AP1 {
         int[] result = new int[count];
         int position = 0;
 
-        for (int i = 0; i < nums.length; i++) {
-            if (nums[i] % 2 == 0) {
-                result[position] = nums[i];
+        for (int num : nums) {
+            if (num % 2 == 0) {
+                result[position] = num;
                 position++;
             }
-            if (position == count)
+            if (position == count) {
                 break;
+            }
         }
         return result;
     }
@@ -419,9 +420,11 @@ public class AP1 {
      */
     public String[] wordsWithout(String[] words, String target) {
         int count = 0;
-        for (int i = 0; i < words.length; i++)
-            if (!words[i].equals(target))
+        for (String word : words) {
+            if (!word.equals(target)) {
                 count++;
+            }
+        }
 
         String[] result = new String[count];
         for (int i = 0, pos = 0; i < words.length; i++)
@@ -453,14 +456,18 @@ public class AP1 {
      */
     public int scoresSpecial(int[] a, int[] b) {
         int resultA = 0;
-        for (int i = 0; i < a.length; i++)
-            if (a[i] % 10 == 0 && a[i] > resultA)
-                resultA = a[i];
+        for (int anA : a) {
+            if (anA % 10 == 0 && anA > resultA) {
+                resultA = anA;
+            }
+        }
 
         int resultB = 0;
-        for (int i = 0; i < b.length; i++)
-            if (b[i] % 10 == 0 && b[i] > resultB)
-                resultB = b[i];
+        for (int aB : b) {
+            if (aB % 10 == 0 && aB > resultB) {
+                resultB = aB;
+            }
+        }
 
         return resultA + resultB;
     }
@@ -649,14 +656,17 @@ public class AP1 {
     public int commonTwo(String[] a, String[] b) {
         int count = 0;
         String lastChecked = null;
-        for (int i = 0; i < a.length; i++)
-            if (!a[i].equals(lastChecked))
-                for (int j = 0; j < b.length; j++)
-                    if (a[i].equals(b[j])) {
+        for (String anA : a) {
+            if (!anA.equals(lastChecked)) {
+                for (String aB : b) {
+                    if (anA.equals(aB)) {
                         count++;
-                        lastChecked = a[i];
+                        lastChecked = anA;
                         break;
                     }
+                }
+            }
+        }
         return count;
     }
 
