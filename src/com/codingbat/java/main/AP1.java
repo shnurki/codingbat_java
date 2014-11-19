@@ -188,8 +188,7 @@ public class AP1 {
      */
     public String[] wordsFront(String[] words, int n) {
         String[] newWords = new String[n];
-        for (int i = 0; i < n; i++)
-            newWords[i] = words[i];
+        System.arraycopy(words, 0, newWords, 0, n);
         return newWords;
     }
 

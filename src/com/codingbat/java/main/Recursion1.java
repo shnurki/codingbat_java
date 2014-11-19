@@ -435,11 +435,7 @@ public class Recursion1 {
      * @link http://codingbat.com/prob/p173469
      */
     public boolean array220(int[] nums, int index) {
-        if (nums.length < 2 || index == nums.length - 1)
-            return false;
-        if (nums[index + 1] == nums[index] * 10)
-            return true;
-        return array220(nums, index + 1);
+        return !(nums.length < 2 || index == nums.length - 1) && (nums[index + 1] == nums[index] * 10 || array220(nums, index + 1));
     }
 
     /**
@@ -676,11 +672,7 @@ public class Recursion1 {
      * @link http://codingbat.com/prob/p183174
      */
     public boolean nestParen(String str) {
-        if (str.equals("") || str.equals("()"))
-            return true;
-        if (str.charAt(0) == '(' && str.charAt(str.length() - 1) == ')')
-            return nestParen(str.substring(1, str.length() - 1));
-        return false;
+        return str.equals("") || str.equals("()") || str.charAt(0) == '(' && str.charAt(str.length() - 1) == ')' && nestParen(str.substring(1, str.length() - 1));
     }
 
     /**
@@ -752,7 +744,7 @@ public class Recursion1 {
      * @link http://codingbat.com/prob/p195413
      */
     public int strDist(String str, String sub) {
-        if (str.indexOf(sub) == -1)
+        if (!str.contains(sub))
             return 0;
         if (str.substring(0, sub.length()).equals(sub) && str.substring(str.length() - sub.length()).equals(sub))
             return str.length();
